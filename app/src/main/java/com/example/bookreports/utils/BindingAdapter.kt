@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.signature.ObjectKey
 import com.example.bookreports.R
 import com.example.bookreports.data.book.BookItem
 import com.example.bookreports.detail.CommentAdapter
@@ -23,12 +24,12 @@ fun bindImageView(view: ImageView, url: String) {
     url?.let {
         Glide.with(view.context)
                 .load(url)
-
                 .apply(
                         RequestOptions()
                                 .placeholder(R.drawable.ic_imagedownload)
                                 .error(R.drawable.ic_imagefail)
-                                .diskCacheStrategy(DiskCacheStrategy.ALL))
+                                .diskCacheStrategy(DiskCacheStrategy.DATA)
+                                )
                 .into(view)
     }
 }

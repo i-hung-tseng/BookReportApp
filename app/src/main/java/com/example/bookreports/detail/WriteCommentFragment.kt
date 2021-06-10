@@ -69,22 +69,8 @@ class WriteCommentFragment : Fragment() {
 
 
 
-//
-//        btnSend.setOnClickListener{
-//            val getComment = binding.edComment.text.toString()
-//            if (getComment.length > 0 ){
-//            pb_writeComment.visibility = View.VISIBLE
-//            viewModel.writeComment(viewModel.startNum.value!!,getComment)
-//            viewModel.resetRateNum()
-//            }else{
-//             if (viewModel.startNum.value != null){
-//             viewModel.writeComment(viewModel.startNum.value!!,null)
-//             viewModel.resetRateNum()}
-//                else{
-//                 Log.d("Testing","rate　目前為null")
-//             }
-//            }
-//        }
+
+
 
         btnSend.setOnClickListener {
             val getComment = binding.edComment.text.toString()

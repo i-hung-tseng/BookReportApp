@@ -41,6 +41,14 @@ class MainViewModel():ViewModel() {
     get() = _firstComment
 
 
+
+    private val _searchName = MutableLiveData<String>()
+    val searchName: LiveData<String>
+    get() = _searchName
+
+
+
+
     private val _fetchApiError = MutableLiveData<String>()
     val fetchApiError: LiveData<String>
     get() = _fetchApiError
@@ -267,6 +275,7 @@ init {
                 } else {
                 }
             } catch (e: Exception) {
+                Timber.d("loginFail e: $e")
             }
         }
     }
@@ -355,6 +364,7 @@ init {
 
     fun searchByName(bookName: String){
         searchByBookNameByApi(bookName)
+        _searchName.postValue(bookName)
     }
 
     fun setAlreadyRate(float: Float){

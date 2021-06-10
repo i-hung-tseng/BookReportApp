@@ -36,7 +36,27 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent=".1" />
 
+        <TextView
+            android:id="@+id/tv_searchWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_recyclerview_result_top"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_resultNum"
+            app:layout_constraintVertical_bias="1.0"
+            android:layout_marginEnd="5dp"
+            tools:layout_editor_absoluteX="317dp" />
 
+        <TextView
+            android:id="@+id/tv_resultNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_recyclerview_result_top"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:layout_editor_absoluteX="149dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,8 +33,8 @@ class DetailFragment : Fragment(), RatingBar.OnRatingBarChangeListener {
 
     lateinit var list: MutableList<Int>
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
 
         binding = FragmentDetailBinding.inflate(inflater)
@@ -45,6 +45,12 @@ class DetailFragment : Fragment(), RatingBar.OnRatingBarChangeListener {
         var ratingBar = binding.ratingBar
         ratingBar.onRatingBarChangeListener = this
 
+        ratingBar.setOnClickListener {
+            Timber.d("ratingBar is clicked")
+        }
+
+
+        //書籍介紹可滑動
         binding.tvDescrip.movementMethod = ScrollingMovementMethod()
 
 
@@ -54,9 +60,10 @@ class DetailFragment : Fragment(), RatingBar.OnRatingBarChangeListener {
 
         viewModel.rateNum.observe(viewLifecycleOwner, Observer {
             if (viewModel.rateNum.value != 10f && viewModel.firstComment.value == "YES") {
+                Timber.d("enter Observe viewmodel.rate: ${viewModel.rateNum.value } first ${viewModel.firstComment.value}")
                 if (this.findNavController().currentDestination?.id == R.id.detailFragment) {
                     this.findNavController()
-                        .navigate(DetailFragmentDirections.actionDetailFragmentToWriteCommentFragment())
+                            .navigate(DetailFragmentDirections.actionDetailFragmentToWriteCommentFragment())
                     viewModel.resetFirstComment()
                 } else {
 
@@ -78,7 +85,7 @@ class DetailFragment : Fragment(), RatingBar.OnRatingBarChangeListener {
 
         viewModel.selectedBookDetail.observe(viewLifecycleOwner, Observer {
 
-                commentAdapter.submitList(it.comments)
+            commentAdapter.submitList(it.comments)
         })
 
         return binding.root
@@ -110,16 +117,16 @@ class DetailFragment : Fragment(), RatingBar.OnRatingBarChangeListener {
                     list = mutableListOf<Int>()
                     viewModel.accountProfile?.value?.user?.comments?.get(i)?.bookID?.let {
                         list.add(
-                            it
+                                it
                         )
                     }
                     if (bookId in list) {
                         val alreadyBook =
-                            viewModel.accountProfile.value?.user?.comments?.get(i)?.bookID
+                                viewModel.accountProfile.value?.user?.comments?.get(i)?.bookID
                         viewModel.addAlreadyComment(
-                            viewModel.accountProfile.value?.user?.comments?.get(
-                                i
-                            )
+                                viewModel.accountProfile.value?.user?.comments?.get(
+                                        i
+                                )
                         )
                     } else {
                     }
@@ -130,7 +137,7 @@ class DetailFragment : Fragment(), RatingBar.OnRatingBarChangeListener {
 
     }
 
-    private fun initAdapter(){
+    private fun initAdapter() {
         val myRecy = binding.recyComment
         val linearManager = LinearLayoutManager(requireContext())
         linearManager.orientation = LinearLayoutManager.VERTICAL
@@ -138,8 +145,6 @@ class DetailFragment : Fragment(), RatingBar.OnRatingBarChangeListener {
         commentAdapter = CommentAdapter()
         myRecy.adapter = commentAdapter
     }
-
-
 
 
 }

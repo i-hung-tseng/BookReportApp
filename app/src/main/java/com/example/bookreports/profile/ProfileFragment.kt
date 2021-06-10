@@ -296,6 +296,7 @@ class ProfileFragment : Fragment() {
         } else {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE)
+            Timber.d("enter else getOutputMediaFileUri")
             intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri)
 
             startActivityForResult(intent, REQUEST_FROM_GALLERY)

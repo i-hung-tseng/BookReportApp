@@ -1,10 +1,17 @@
 package com.example.bookreports.resultlist
 
+import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -14,7 +21,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bookreports.R
 import com.example.bookreports.databinding.FragmentResultListBinding
 import com.example.bookreports.home.category.RecommendAdapter
+import com.example.bookreports.profile.ProfileFragmentDirections
 import com.example.bookreports.utils.MainViewModel
+import es.dmoral.toasty.Toasty
 import timber.log.Timber
 
 
@@ -42,6 +51,34 @@ class ResultListFragment : Fragment() {
         viewModel.bookResult.observe(viewLifecycleOwner, Observer {
             resultAdapter.submitList(it)
         })
+
+
+
+        val searchWord = "關鍵字:" + "${viewModel.searchName.value}"
+        val resultNum = "共有:" + "${viewModel.bookResult.value?.size}" + "筆資料"
+
+        val span = SpannableString(searchWord)
+        span.setSpan(ForegroundColorSpan(Color.RED),4,searchWord.length,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        binding.tvSearchWord.text = span
+
+        val spanNum = SpannableString(resultNum)
+        span.setSpan(ForegroundColorSpan(Color.RED),3,resultNum.length-3,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        binding.tvResultNum.text = spanNum
+
+
+
+        if (viewModel.bookResult.value?.size == 0) {
+            Toasty.info(requireActivity(), "查無關鍵字，請重新查詢", Toast.LENGTH_SHORT).show()
+            Handler(Looper.getMainLooper()).postDelayed({
+                if (this.findNavController().currentDestination?.id == R.id.resultListFragment)
+                this.findNavController().navigate(ResultListFragmentDirections.actionResultListFragmentToHomeFragment())
+            },3000)
+        }
+
+
+
+
+
 
 
         mRecyclerView = binding.recyclerviewResult
