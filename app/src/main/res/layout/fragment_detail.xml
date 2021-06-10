@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.bookreports.utils.MainViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backGroundWhite"
+        tools:context=".detail.DetailFragment">
+
+
+        <ImageView
+            android:id="@+id/imageView_detail"
+            bind_itemView="@{viewmodel.selectedBook.image}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintWidth_percent=".25"
+            app:layout_constraintHeight_percent=".2"
+            app:layout_constraintWidth_default = "percent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintStart_toStartOf="@id/guideline_bookstart"
+            app:layout_constraintTop_toTopOf="@id/guideline_booktop" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bookbottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".22" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_booktop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".02" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_bookstart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinetitlestart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".4" />
+
+
+
+        <TextView
+            android:id="@+id/tv_bookName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintVertical_bias=".05"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:maxEms="10"
+            android:singleLine="true"
+            android:layout_marginStart="0dp"
+            android:text="@{viewmodel.selectedBook.bookname}"
+            app:layout_constraintStart_toStartOf="@+id/guidelinetitlestart"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guidelinetitlestart"
+            app:layout_constraintVertical_bias=".1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:maxEms="10"
+            android:layout_marginStart="0dp"
+            android:singleLine="true"
+            android:text="@{viewmodel.selectedBook.author}" />
+
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            app:layout_constraintVertical_bias=".15"
+            android:text="@{viewmodel.selectedBook.category}"
+            app:layout_constraintStart_toStartOf="@+id/guidelinetitlestart"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_publishedData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            app:layout_constraintVertical_bias=".2"
+            android:text="@{viewmodel.selectedBook.publish_date}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guidelinetitlestart" />
+
+
+        <TextView
+            android:id="@+id/tv_descrip"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent=".2"
+            app:layout_constraintWidth_percent=".6"
+            app:layout_constraintWidth_default = "percent"
+            app:layout_constraintHeight_default="percent"
+            android:layout_marginStart="16dp"
+            android:background="@color/darkBrown"
+            android:gravity="center_horizontal|left"
+            android:text="@{viewmodel.selectedBook.description}"
+            app:layout_constraintBottom_toTopOf="@+id/guideline23"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline22"
+            app:layout_constraintTop_toTopOf="@+id/guideline23"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".4" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginBottom="27dp"
+            app:layout_constraintWidth_percent=".6"
+            app:layout_constraintHeight_percent=".06"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintWidth_default="percent"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize=".1"
+            android:isIndicator="true"
+            app:layout_constraintBottom_toTopOf="@+id/recy_comment"
+            app:layout_constraintEnd_toStartOf="@+id/guideline22"
+            app:layout_constraintStart_toStartOf="@+id/guideline22"
+            app:layout_constraintTop_toBottomOf="@+id/tv_descrip" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideliner_recycler_comment_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".65" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideliner_recycler_comment_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".85" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recy_comment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            comment_list="@{viewmodel.selectedBookDetail.comments}"
+            app:layout_constraintBottom_toBottomOf="@+id/guideliner_recycler_comment_bottom"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_recyclerview_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_recyclerview_start"
+            app:layout_constraintTop_toTopOf="@id/guideliner_recycler_comment_top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_recyclerview_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_recyclerview_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineAllTextHalf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".12" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

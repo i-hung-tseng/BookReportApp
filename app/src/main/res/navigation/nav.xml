@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.bookreports.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment2"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_overViewFragment"
+            app:destination="@id/overViewFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_overViewHealth"
+            app:destination="@id/overViewHealth" />
+        <action
+            android:id="@+id/action_homeFragment_to_overViewBusinessFragment"
+            app:destination="@id/overViewBusinessFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_overViewRecommendFragment"
+            app:destination="@id/overViewRecommendFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_overViewWorkFragment"
+            app:destination="@id/overViewWorkFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_overViewHumanFragment"
+            app:destination="@id/overViewHumanFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_resultListFragment"
+            app:destination="@id/resultListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_bookStoreFragment"
+            app:destination="@id/bookStoreFragment"
+            app:popUpTo="@id/bookStoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.bookreports.registerinfo.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerNameFragment"
+            app:destination="@id/registerNameFragment"
+            app:enterAnim="@anim/fragment_fade_enter" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerEMailFragment"
+            app:destination="@id/registerEMailFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerNameFragment"
+        android:name="com.example.bookreports.registerinfo.RegisterNameFragment"
+        android:label="RegisterNameFragment" >
+        <action
+            android:id="@+id/action_registerNameFragment_to_registerEMailFragment"
+            app:destination="@id/registerEMailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerEMailFragment"
+        android:name="com.example.bookreports.registerinfo.RegisterEMailFragment"
+        android:label="RegisterEMailFragment" >
+        <action
+            android:id="@+id/action_registerEMailFragment_to_registerPassWordFragment"
+            app:destination="@id/registerPassWordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerAreaFragment"
+        android:name="com.example.bookreports.registerinfo.RegisterAreaFragment"
+        android:label="RegisterAreaFragment" >
+        <action
+            android:id="@+id/action_registerAreaFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_registerAreaFragment_to_registerEMailFragment"
+            app:destination="@id/registerEMailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/overViewFragment"
+        android:name="com.example.bookreports.overview.OverViewFragment"
+        android:label="OverViewFragment" />
+    <fragment
+        android:id="@+id/registerPassWordFragment"
+        android:name="com.example.bookreports.registerinfo.RegisterPassWordFragment"
+        android:label="RegisterPassWordFragment" >
+        <action
+            android:id="@+id/action_registerPassWordFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_registerPassWordFragment_to_registerPassWordConfirmationFragment"
+            app:destination="@id/registerPassWordConfirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerPassWordConfirmationFragment"
+        android:name="com.example.bookreports.registerinfo.RegisterPassWordConfirmationFragment"
+        android:label="RegisterPassWordConfirmationFragment" >
+        <action
+            android:id="@+id/action_registerPassWordConfirmationFragment_to_registerAreaFragment"
+            app:destination="@id/registerAreaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.bookreports.profile.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/overViewBusinessFragment"
+        android:name="com.example.bookreports.home.category.OverViewBusinessFragment"
+        android:label="OverViewBusinessFragment" >
+        <action
+            android:id="@+id/action_overViewBusinessFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/overViewHealth"
+        android:name="com.example.bookreports.home.category.OverViewHealthFragment"
+        android:label="OverViewHealth" />
+    <fragment
+        android:id="@+id/overViewRecommendFragment"
+        android:name="com.example.bookreports.home.category.OverViewRecommendFragment"
+        android:label="fragment_over_view_recommend"
+        tools:layout="@layout/fragment_over_view_recommend" />
+    <fragment
+        android:id="@+id/overViewWorkFragment"
+        android:name="com.example.bookreports.home.category.OverViewWorkFragment"
+        android:label="fragment_over_view_work"
+        tools:layout="@layout/fragment_over_view_work" />
+    <fragment
+        android:id="@+id/overViewHumanFragment"
+        android:name="com.example.bookreports.home.category.OverViewHumanFragment"
+        android:label="fragment_over_view_human"
+        tools:layout="@layout/fragment_over_view_human" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.bookreports.detail.DetailFragment"
+        android:label="DetailFragment" >
+        <action
+            android:id="@+id/action_detailFragment_to_writeCommentFragment"
+            app:destination="@id/writeCommentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/writeCommentFragment"
+        android:name="com.example.bookreports.detail.WriteCommentFragment"
+        android:label="WriteCommentFragment" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultListFragment"
+        android:name="com.example.bookreports.resultlist.ResultListFragment"
+        android:label="ResultListFragment" >
+        <action
+            android:id="@+id/action_resultListFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookStoreFragment"
+        android:name="com.example.bookreports.bookstore.BookStoreFragment"
+        android:label="BookStoreFragment" />
+</navigation>

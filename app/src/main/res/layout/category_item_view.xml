@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.example.bookreports.utils.MainViewModel" />
+
+        <variable
+            name="itemview"
+            type="com.example.bookreports.data.book.BookItem" />
+
+
+    </data>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backGroundWhite">
+
+
+        <ImageView
+            android:id="@+id/image_categoryItem"
+            bind_itemView="@{itemview.image}"
+            android:layout_width="150dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:adjustViewBounds="true"
+            android:background="@color/lightBrown"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic"/>
+
+        <TextView
+            android:id="@+id/textView8"
+            app:layout_constraintStart_toStartOf="@id/image_categoryItem"
+            app:layout_constraintEnd_toEndOf="@id/image_categoryItem"
+            app:layout_constraintTop_toBottomOf="@id/image_categoryItem"
+            android:layout_marginTop="20dp"
+            android:layout_width="160dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="8dp"
+            android:text="@{itemview.bookname}"
+            android:singleLine="true"
+            android:ellipsize="end"
+            tools:layout_editor_absoluteX="65dp"
+            tools:layout_editor_absoluteY="424dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

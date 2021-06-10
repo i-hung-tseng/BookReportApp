@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backGroundWhite"
+        tools:context=".registerinfo.RegisterGenderFragment">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_gender_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_gender_tvgenderTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".15" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_gender_enterTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".3" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_gender_btnBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".8" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose your Genter"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_gender_center"
+            app:layout_constraintStart_toStartOf="@+id/guideline_gender_center"
+            app:layout_constraintTop_toTopOf="@+id/guideline_gender_tvgenderTop" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="87dp"
+            android:layout_height="53dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_gender_center"
+            app:layout_constraintStart_toStartOf="@+id/guideline_gender_center"
+            app:layout_constraintTop_toTopOf="@+id/guideline_gender_enterTop" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_gender_next"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_buttoncorner"
+            android:text="Next→"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_gender_btnBottom"
+            app:layout_constraintDimensionRatio="5:1"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_btnGender_end"
+            app:layout_constraintStart_toStartOf="@+id/guideline_btnGender_start" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_btnGender_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_btnGender_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".7" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

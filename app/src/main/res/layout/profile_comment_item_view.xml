@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.bookreports.utils.MainViewModel" />
+
+        <variable
+            name="comment"
+            type="com.example.bookreports.data.userprofile.Comment" />
+    </data>
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        bind_itemView="@{comment.book.image}"
+        tools:srcCompat="@tools:sample/avatars" />
+</RelativeLayout>
+
+</layout>

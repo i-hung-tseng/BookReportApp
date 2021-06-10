@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backGroundWhite"
+        tools:context=".registerinfo.RegisterEMailFragment">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_email_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_tvEmail_Top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_edit_enterEmail_Top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_btnEmail_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".8" />
+
+        <TextView
+            android:id="@+id/te_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter your E-Mail"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_email_center"
+            app:layout_constraintStart_toStartOf="@+id/guideline_email_center"
+            app:layout_constraintTop_toTopOf="@+id/guideline_tvEmail_Top" />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_email_center"
+            app:layout_constraintStart_toStartOf="@+id/guideline_email_center"
+            app:layout_constraintTop_toTopOf="@+id/guideline_edit_enterEmail_Top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_btnEmailStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_btnEmailEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".7" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_email_next"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_buttoncorner"
+            android:text="Next→"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_btnEmail_bottom"
+            app:layout_constraintDimensionRatio="5:1"
+            app:layout_constraintEnd_toEndOf="@+id/guideline_btnEmailEnd"
+            app:layout_constraintStart_toStartOf="@+id/guideline_btnEmailStart" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

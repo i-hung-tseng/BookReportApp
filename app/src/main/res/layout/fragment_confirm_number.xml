@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backGroundWhite"
+        tools:context=".registerinfo.ConfirmNumberFragment">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_tvPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_verticalcenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+        <TextView
+            android:id="@+id/tv_yourPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter your phone"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_verticalcenter"
+            app:layout_constraintHorizontal_bias="0.896"
+            app:layout_constraintStart_toStartOf="@+id/guideline_verticalcenter"
+            app:layout_constraintTop_toTopOf="@+id/guideline_tvPhone" />
+
+        <EditText
+            android:id="@+id/edit_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_verticalcenter"
+            app:layout_constraintStart_toStartOf="@+id/guideline_verticalcenter"
+            app:layout_constraintTop_toTopOf="@+id/guide_enterSpace" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_enterSpace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_buttom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".8" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_number_next"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_buttoncorner"
+            android:text="Next→"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_buttom"
+            app:layout_constraintDimensionRatio="5:1"
+            app:layout_constraintStart_toStartOf="@id/guideline_btnConfirmStart"
+            app:layout_constraintEnd_toEndOf="@id/guideline_btnConfirmEnd"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_btnConfirmStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_btnConfirmEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".7" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

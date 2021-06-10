@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">BookReport</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="enter_your_name">Enter your Name</string>
+
+    <string-array name="spinner_gender">
+        <item>男生</item>
+        <item>女生</item>
+    </string-array>
+
+
+    <string-array name="spinner_area">
+        <item>北部</item>
+        <item>中部</item>
+        <item>南部</item>
+        <item>花東</item>
+        <item>離島</item>
+    </string-array>
+
+
+    <string-array name="spinner_specialization">
+        <item>商業</item>
+        <item>健身</item>
+        <item>戀愛諮詢</item>
+        <item>語言諮詢</item>
+        <item>國外留學諮詢</item>
+    </string-array>
+
+
+    <string-array name="email">
+        <item>\@gmail.com</item>
+        <item>\@yahoo.com.tw</item>
+        <item>\@outlook.com</item>
+
+    </string-array>
+
+
+</resources>

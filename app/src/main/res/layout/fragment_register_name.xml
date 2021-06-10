@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backGroundWhite"
+        tools:context=".registerinfo.RegisterNameFragment">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_tvnameTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".15" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_your_name"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_registerNmae_center"
+            app:layout_constraintStart_toStartOf="@+id/guideline_registerNmae_center"
+            app:layout_constraintTop_toTopOf="@+id/guideline_tvnameTop" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_registerNmae_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guildline_edit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".3" />
+
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter your Name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_registerNmae_center"
+            app:layout_constraintStart_toStartOf="@+id/guideline_registerNmae_center"
+            app:layout_constraintTop_toTopOf="@+id/guildline_edit_name" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guildline_btnName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".8" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_name_next"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/background_buttoncorner"
+            android:text="Next→"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/guildline_btnName"
+            app:layout_constraintDimensionRatio="5:1"
+            app:layout_constraintStart_toStartOf="@+id/guildline_btnnameStart"
+            app:layout_constraintEnd_toEndOf="@+id/guildeline_namebtn_end"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guildline_btnnameStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guildeline_namebtn_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".7" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
