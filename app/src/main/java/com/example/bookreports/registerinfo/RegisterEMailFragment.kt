@@ -38,8 +38,15 @@ class RegisterEMailFragment : Fragment(){
 //
 //            Timber.d("email check ${matcher.matches()}")
 
+
+
+             //
+
+
+
+
             // TODO: 2021/6/8 這邊之後要再次確認 
-            val key = Regex("[a-z0-9A-Z]*+@+[a-z0-9A-Z._]*+[a-z0-9A-Z._]*+[a-z0-9A-Z._]*")
+            val key = Regex("[a-z0-9A-Z._]*+@+[a-z0-9A-Z._]*+[a-z0-9A-Z._]*+[a-z0-9A-Z._]*")
             if (email.length > 0 && email.matches(key) ) {
                 viewModel.list[1] = email
                 this.findNavController().navigate(RegisterEMailFragmentDirections.actionRegisterEMailFragmentToRegisterPassWordFragment())

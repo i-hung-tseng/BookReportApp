@@ -28,7 +28,7 @@ fun bindImageView(view: ImageView, url: String) {
                         RequestOptions()
                                 .placeholder(R.drawable.ic_imagedownload)
                                 .error(R.drawable.ic_imagefail)
-                                .diskCacheStrategy(DiskCacheStrategy.DATA)
+                                .diskCacheStrategy(DiskCacheStrategy.ALL)
                                 )
                 .into(view)
     }

@@ -131,4 +131,10 @@ dependencies {
 
     //有顏色的Toast
     implementation 'com.github.GrenderG:Toasty:1.4.2'
+
+
+    //Picaso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
+
 }
