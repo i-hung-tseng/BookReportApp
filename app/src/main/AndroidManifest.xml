@@ -29,6 +29,7 @@
         <activity
             android:name=".utils.MainActivity"
             android:label="@string/title_activity_main"
+            android:requestLegacyExternalStorage="true"
             android:theme="@style/TTheme_SplashScreen.NoActionBar">
         </activity>
         <activity android:name=".utils.SplashActivity">
@@ -45,15 +46,15 @@
             android:theme="@style/Base.Theme.AppCompat"/>
 
 
-        <receiver
-            android:name=".utils.MyReceiver"
-            android:exported="false"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="android.intent.action.AIRPLANE_MODE">
-                </action>
-            </intent-filter>
-        </receiver>
+<!--        <receiver-->
+<!--            android:name=".utils.MyReceiver"-->
+<!--            android:exported="false"-->
+<!--            android:enabled="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.AIRPLANE_MODE">-->
+<!--                </action>-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
 
 
 

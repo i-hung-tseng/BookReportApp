@@ -6,6 +6,7 @@ import com.example.bookreports.data.book.BookItem
 import com.example.bookreports.data.book.detailbook.selectedDetail
 import com.example.bookreports.data.login.userLogin
 import com.example.bookreports.data.logout.logOut
+import com.example.bookreports.data.profile_upload.ProfileImage
 import com.example.bookreports.data.register.registerUser
 import com.example.bookreports.data.register.register_success.userFromApi
 import com.example.bookreports.data.userprofile.UserProfile
@@ -45,15 +46,16 @@ interface BookApiService {
     fun apiGetBook(): Deferred<List<BookItem>>
 
 
+
     @Multipart
+//    @Headers("Content-Type: multipart/form-data")
     @POST("http://52.196.162.105/api/profile/{user_id}/photo")
-    @Headers("Content-Type: multipart/form-data")
     fun apiUploadProfile(
         @Path("user_id") userId: String,
         @Query("_method") string: String,
-        @Part file: MultipartBody.Part,
+        @Part image: MultipartBody.Part,
         @Header("authorization") token: String?
-    ): Deferred<Response<ResponseBody>>
+    ): Deferred<Response<ProfileImage>>
 
 
     @FormUrlEncoded
@@ -106,12 +108,9 @@ object BookApi {
                 val newRequest = chain.request().newBuilder()
                     .addHeader("Content-Type", "application/json")
                     .addHeader("Content-Type", "application/x-www-form-urlencoded")
+                        .header("Content-Type","multipart/form-data")
                     .build()
 
-                val request = chain.request()
-
-                Timber.d("RequestNew $newRequest")
-                Timber.d("Request $request")
 
                 return chain.proceed(newRequest)
             }

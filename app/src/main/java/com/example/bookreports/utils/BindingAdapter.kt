@@ -13,6 +13,9 @@ import com.example.bookreports.data.book.BookItem
 import com.example.bookreports.detail.CommentAdapter
 import com.example.bookreports.home.category.BusinessAdapter
 import com.example.bookreports.resultlist.ResultAdapter
+import com.squareup.picasso.Callback
+import com.squareup.picasso.NetworkPolicy
+import com.squareup.picasso.Picasso
 import timber.log.Timber
 import java.security.AccessController.getContext
 

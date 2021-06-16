@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    外部儲存空間的根目錄，等同 Environment.getExternalStorageDirectory()獲取的路徑-->
     <external-path
         name="external_files"
         path="." />
-    <files-path
+
+
+<!--    內部儲存空間應用私有目錄下的files/目錄-->
+<!--    等同Content.getFilesDir()-->
+   <files-path
         name="internal"
         path="." />
-
-    <root-path
-        name="root"
-        path="." />
-
 
 </paths>

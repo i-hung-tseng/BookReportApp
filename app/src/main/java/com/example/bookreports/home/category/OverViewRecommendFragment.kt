@@ -47,6 +47,7 @@ class OverViewRecommendFragment : Fragment() {
         binding.lifecycleOwner = this
         viewModel.recommendBooks.observe(viewLifecycleOwner, Observer {
             recommendAdapter.submitList(it)
+            Timber.d("enter recommend")
         })
         var mRecyclerview = binding.recyclerviewRecommend
 

@@ -377,11 +377,11 @@ init {
     }
 
     @SuppressLint("LogNotTimber")
-    fun uploadImage(requestFile: MultipartBody.Part?) {
+    fun uploadImage(requestFile: MultipartBody.Part) {
 
         val token = "Bearer " +_registerAccount.value?.token
         viewModelScope.launch(Dispatchers.IO) {
-            val result = BookApi.retrofitService.apiUploadProfile(accountProfile.value?.user?.id.toString(),"PUT",requestFile!!,token).await()
+            val result = BookApi.retrofitService.apiUploadProfile(accountProfile.value?.user?.id.toString(),"PUT",requestFile,token).await()
             if(result.isSuccessful){
                 Timber.d("upload成功")
             }else{
