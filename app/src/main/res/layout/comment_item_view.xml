@@ -22,12 +22,12 @@
 
         <ImageView
             android:id="@+id/image_commentUser"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            bind_itemView="@{comment.user.image}"
-            app:layout_constraintWidth_percent=".25"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            bindProfile="@{comment.user.image}"
+            android:adjustViewBounds="true"
+            android:foregroundGravity="center"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintWidth_default="percent"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="16dp"
             android:layout_marginTop="8dp"
@@ -36,56 +36,20 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/tv_commentUserName"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintWidth_percent=".25"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintDimensionRatio="3"
-            android:gravity="center_horizontal"
-            android:text="@{comment.user.name}"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="0dp"
-            app:layout_constraintStart_toStartOf="@id/guideline_imageStart"
-            app:layout_constraintTop_toBottomOf="@id/image_commentUser"/>
-
-        <TextView
             android:id="@+id/tv_comment"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:gravity="center_vertical"
+            android:layout_height="100dp"
+            app:layout_constraintWidth_percent=".6"
+            app:layout_constraintWidth_default="percent"
+            android:layout_marginEnd="10dp"
             android:background="@color/white"
-            app:layout_constraintWidth_percent=".55"
-            app:layout_constraintHeight_percent=".14"
-            android:layout_marginTop="8dp"
             android:text="@{comment.comment}"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/image_commentUser"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias=".75"
+            app:layout_constraintStart_toEndOf="@id/image_commentUser"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <ImageView
-            android:id="@+id/image_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="@id/tv_commentUserName"
-            app:layout_constraintBottom_toBottomOf="@id/tv_commentUserName"
-            app:layout_constraintStart_toStartOf="@id/tv_comment"
-            android:layout_marginStart="0dp"
-            app:srcCompat="@drawable/ic_baseline_star_24"
-            tools:layout_editor_absoluteX="139dp"
-            tools:layout_editor_absoluteY="118dp" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="74dp"
-            android:layout_height="33dp"
-            android:layout_marginStart="85dp"
-            app:layout_constraintEnd_toEndOf="@id/tv_comment"
-            android:layout_marginEnd="0dp"
-            android:text="@{String.valueOf(comment.rate)}"
-            app:layout_constraintTop_toTopOf="@id/tv_commentUserName"
-            app:layout_constraintBottom_toBottomOf="@id/tv_commentUserName"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_imageStart"

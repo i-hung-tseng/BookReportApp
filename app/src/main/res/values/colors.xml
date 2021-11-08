@@ -19,4 +19,6 @@
     <color name="tablayout">#7A989A</color>
     <color name="darkBrown">#FFDEA1</color>
     <color name="gray">#5B5B5B</color>
+    <color name="lightGray">#9C9C9C </color>
+    <color name="lightOrange">#FFF0D4</color>
 </resources>

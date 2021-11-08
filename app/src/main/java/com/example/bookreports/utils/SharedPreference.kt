@@ -1,7 +1,7 @@
 package com.example.bookreports.utils
 
 import android.content.Context
-import android.util.Log
+
 
 class SharedPreference(content: Context) {
 
@@ -20,5 +20,21 @@ class SharedPreference(content: Context) {
     }
     fun getPass(): String?{
         return sharedPreference.getString("密碼","")
+    }
+
+    fun saveRememberAccount(rememberOrNot: Boolean){
+        sharedPreference.edit().putBoolean("記住帳密",rememberOrNot).apply()
+    }
+
+    fun getRememberAccount(): Boolean{
+        return sharedPreference.getBoolean("記住帳密",false)
+    }
+
+    fun saveState(loginOrNot: Boolean){
+        sharedPreference.edit().putBoolean("維持",loginOrNot).apply()
+    }
+
+    fun getState(): Boolean{
+        return sharedPreference.getBoolean("維持",true)
     }
 }

@@ -25,8 +25,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/enter_your_name"
-            android:textSize="30sp"
+            android:text="@string/register_name"
+            android:textSize="22sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline_registerNmae_center"
             app:layout_constraintStart_toStartOf="@+id/guideline_registerNmae_center"
             app:layout_constraintTop_toTopOf="@+id/guideline_tvnameTop" />
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Enter your Name"
+            android:hint="@string/register_name_hint"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toStartOf="@+id/guideline_registerNmae_center"
             app:layout_constraintStart_toStartOf="@+id/guideline_registerNmae_center"

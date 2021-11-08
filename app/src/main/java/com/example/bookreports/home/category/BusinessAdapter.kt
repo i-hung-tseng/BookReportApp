@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bookreports.data.book.Book
 import com.example.bookreports.data.book.BookItem
 import com.example.bookreports.databinding.CategoryItemViewBinding
 

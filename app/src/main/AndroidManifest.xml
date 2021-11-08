@@ -24,18 +24,26 @@
         android:supportsRtl="true"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
-        android:theme="@style/TTheme_SplashScreen" >
+        android:theme="@style/TTheme_SplashScreen">
+
 
         <activity
             android:name=".utils.MainActivity"
             android:label="@string/title_activity_main"
+            android:windowSoftInputMode="adjustPan"
             android:requestLegacyExternalStorage="true"
             android:theme="@style/TTheme_SplashScreen.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data android:name="android.app.Searchable"
+                android:resource="@xml/searchable"/>
+
+
         </activity>
         <activity android:name=".utils.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

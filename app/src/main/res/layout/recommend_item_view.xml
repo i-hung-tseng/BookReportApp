@@ -6,9 +6,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="viewmodel"
-            type="com.example.bookreports.utils.MainViewModel" />
 
         <variable
             name="bookItem"
@@ -18,29 +15,39 @@
 
     </data>
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
+        android:layout_width="80dp"
+        app:cardBackgroundColor="@color/lightOrange"
+        android:foregroundGravity="center_horizontal|center_vertical"
+        android:layout_height="wrap_content">
 
-        android:background="@color/backGroundWhite"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:padding="10dp">
+<LinearLayout
+    android:layout_width="80dp"
+    android:layout_gravity="center_horizontal|center_vertical"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/image_recommend"
             bind_itemView="@{bookItem.image}"
-            android:layout_width="90dp"
-            android:layout_height="120dp"
+            android:layout_width="70dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="100dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/tv_recommendBookName"
-            android:layout_width="90dp"
-            android:layout_height="40dp"
-            android:textSize="6sp"
+            android:layout_width="70dp"
+            android:layout_height="20dp"
+            android:textSize="10sp"
+            android:layout_marginStart="2dp"
+            android:gravity="center_vertical|center_horizontal"
             android:text="@{bookItem.bookname}"
             android:ellipsize="end"
             android:layout_below="@id/image_recommend"
-            android:autoSizeTextType="uniform"
             android:singleLine="true" />
-    </RelativeLayout>
+
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </layout>

@@ -31,10 +31,21 @@
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/ic_baseline_menu_24"
             app:title="BookReports"
-            app:titleTextColor="#FFF" />
+            app:titleTextColor="#FFF" >
 
 
+            <com.mancj.materialsearchbar.MaterialSearchBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mt_searchBarColor="@color/textColor"
+                app:mt_speechMode="false"
+                app:mt_placeholder="BookReport"
+                app:mt_textColor="@color/white"
+                app:mt_hint="搜尋書本名稱"
+                android:id="@+id/topSearchBar"/>
 
+
+        </androidx.appcompat.widget.Toolbar>>
 
 
 

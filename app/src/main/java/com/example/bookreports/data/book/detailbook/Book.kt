@@ -1,6 +1,6 @@
 package com.example.bookreports.data.book.detailbook
 
-data class selectedDetail(
+data class Book(
     val author: String,
     val bookname: String,
     val category: String,

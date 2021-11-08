@@ -3,24 +3,16 @@ package com.example.bookreports.utils
 
 
 import android.annotation.SuppressLint
-import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bookreports.data.book.BookItem
-import com.example.bookreports.data.book.detailbook.selectedDetail
-import com.example.bookreports.data.login.userLogin
-import com.example.bookreports.data.logout.logFail
 import com.example.bookreports.data.register.register_error.register_error
-import com.example.bookreports.data.register.registerUser
 import com.example.bookreports.data.register.register_success.userFromApi
 import com.example.bookreports.data.userprofile.Comment
 import com.example.bookreports.data.userprofile.UserProfile
 import com.example.bookreports.network.BookApi
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.*
 import okhttp3.MultipartBody
 import timber.log.Timber
@@ -41,6 +33,11 @@ class MainViewModel():ViewModel() {
     val firstComment : LiveData<String>
     get() = _firstComment
 
+
+
+//    private val _loginFail = MutableLiveData<String>()
+//    val loginFail: LiveData<String>
+//    get() = _loginFail
 
 
     private val _searchName = MutableLiveData<String>()
@@ -82,9 +79,9 @@ class MainViewModel():ViewModel() {
         get() = _alreadyComment
 
 
-    private val _selectedBookDetail = MutableLiveData<selectedDetail>()
-    val selectedBookDetail: LiveData<selectedDetail>
-    get() = _selectedBookDetail
+//    private val _selectedBookDetail = MutableLiveData<selectedDetail>()
+//    val selectedBookDetail: LiveData<selectedDetail>
+//    get() = _selectedBookDetail
 
 
     private val _categoryBookList = MutableLiveData<List<BookItem>>()
@@ -181,154 +178,160 @@ class MainViewModel():ViewModel() {
 
 
 init {
-    getBooksFromApi()
+//    getBooksFromApi()
     _bookResult.postValue(listOf())
-    _firstTimeLogin.postValue(true)
+//    _firstTimeLogin.postValue(true)
 }
 
 
 //    註冊功能
-    fun registerUser() {
-        viewModelScope.launch(Dispatchers.IO) {
-            val userInfo = registerUser(
-                    list[0],
-                    list[1],
-                    list[2],
-                    list[3],
-                    list[4]
-            )
-            try {
-                val gson = Gson()
-                val type = object : TypeToken<register_error>() {}.type
-                val result = BookApi.retrofitService.apiRegister(userInfo).await()
-                if (result.isSuccessful) {
-                    Timber.d("是成功的")
-                    val success = result.body()
-                    if (success != null) {
-                        Timber.d("successful")
-                        _registerAccount.postValue(success)
-
-                    } else {
-                        Timber.d(" su & erall null")
-                    }
-                } else {
-//                        val error = result.errorBody()?.string()
-                    val error: register_error = gson.fromJson(result.errorBody()?.string(), type)
-                    _registerError.postValue(error)
-                    Timber.d(" error $error")
-                }
-            } catch (e: Exception) {
-            }
-
-        }
-    }
-
-    fun logOut() {
-        viewModelScope.launch(Dispatchers.IO) {
-            val token = "Bearer " + _registerAccount.value?.token
-            try {
-                val gson = Gson()
-                val type = object : TypeToken<logFail>() {}.type
-                val result = BookApi.retrofitService.apiLogOut(token).await()
-                withContext(Dispatchers.Main) {
-                    if (result.isSuccessful) {
-                        _registerAccount.postValue(null)
-                        _logOutState.postValue(result.body()?.message)
-                    } else {
-                        val error: logFail = gson.fromJson(result.errorBody()?.string(), type)
-                        _logOutState.postValue(error.message)
-                    }
-                }
-            } catch (e: Exception) {
-                Timber.d("logout fail e:$e")
-            }
-        }
-    }
-
-
-
-    fun getSelectedBookDetailFromApi(bookId: Int){
-        viewModelScope.launch(Dispatchers.IO){
-            val result = BookApi.retrofitService.apiGetSelectedBookDetail(bookId)
-            try {
-                val resultList = result.await()
-                _selectedBookDetail.postValue(resultList.body())
-            }catch (e:Exception){
-            }
+//    fun registerUser() {
+//        viewModelScope.launch(Dispatchers.IO) {
+//            val userInfo = registerUser(
+//                    list[0],
+//                    list[1],
+//                    list[2],
+//                    list[3],
+//                    list[4]
+//            )
+//            try {
+//                val gson = Gson()
+//                val type = object : TypeToken<register_error>() {}.type
+//                val result = BookApi.retrofitService.apiRegister(userInfo).await()
+//                if (result.isSuccessful) {
+//                    Timber.d("是成功的")
+//                    val success = result.body()
+//                    if (success != null) {
+//                        Timber.d("successful")
+//                        _registerAccount.postValue(success)
+//
+//                    } else {
+//                        Timber.d(" su & erall null")
+//                    }
+//                } else {
+////                        val error = result.errorBody()?.string()
+//                    val error: register_error = gson.fromJson(result.errorBody()?.string(), type)
+//                    _registerError.postValue(error)
+//                    Timber.d(" error $error")
+//                }
+//            } catch (e: Exception) {
+//            }
+//
+//        }
+//    }
+//
+//    fun logOut() {
+//        viewModelScope.launch(Dispatchers.IO) {
+//            val token = "Bearer " + _registerAccount.value?.token
+//            try {
+//                val gson = Gson()
+//                val type = object : TypeToken<logFail>() {}.type
+//                val result = BookApi.retrofitService.apiLogOut(token).await()
+//                withContext(Dispatchers.Main) {
+//                    if (result.isSuccessful) {
+//                        _registerAccount.postValue(null)
+//                        _logOutState.postValue(result.body()?.message)
+//                    } else {
+//                        val error: logFail = gson.fromJson(result.errorBody()?.string(), type)
+//                        _logOutState.postValue(error.message)
+//                    }
+//                }
+//            } catch (e: Exception) {
+//                Timber.d("logout fail e:$e")
+//            }
+//        }
+//    }
 
 
-        }
-
-
-
-    }
-
-
-
-    fun login(email: String, passWord: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            val loging = userLogin(email, passWord)
-
-            try {
-                val result = BookApi.retrofitService.apiLogin(loging).await()
-                if (result.isSuccessful) {
-                    _registerAccount.postValue(result.body())
-                } else {
-                }
-            } catch (e: Exception) {
-                Timber.d("loginFail e: $e")
-            }
-        }
-    }
-
-
-    private fun searchByBookNameByApi(bookName: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = BookApi.retrofitService.apiSearchBook(bookName)
-            try {
-                val getResult = result.await()
-                if (getResult.size > 0) {
-                    _bookResult.postValue(getResult)
-                } else {
-                    _bookResult.postValue(listOf())
-                }
-            } catch (e: Exception) {
-            }
-        }
-    }
-
-
-    private fun getBooksFromApi() {
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = BookApi.retrofitService.apiGetBook()
-            try {
-                val resultList = result.await()
-                _recommendBooks.postValue(resultList)
-            } catch (e: Exception) {
-            }
-        }
-    }
+//
+//    fun getSelectedBookDetailFromApi(bookId: Int){
+//        viewModelScope.launch(Dispatchers.IO){
+//            val result = BookApi.retrofitService.apiGetSelectedBookDetail(bookId)
+//            try {
+//                val resultList = result.await()
+//                _selectedBookDetail.postValue(resultList.body())
+//            }catch (e:Exception){
+//            }
+//
+//
+//        }
+//
+//
+//
+//    }
 
 
 
-    fun getUserInfoFromApi(){
-        viewModelScope.launch(Dispatchers.IO) {
-            val token = "Bearer " +_registerAccount.value?.token
-            val result = BookApi.retrofitService.apiGetProfileInfo(_registerAccount.value?.user?.id.toString(),token)
-            try {
-              val resultList = result.await()
-              _accountProfile.postValue(resultList)
-            }catch (e:Exception){
-                _fetchApiError.postValue(e.message)
-            }
-        }
-    }
+//    fun login(email: String, passWord: String) {
+//        viewModelScope.launch(Dispatchers.IO) {
+//            val loging = userLogin(email, passWord)
+//            val gson = Gson()
+//            val type = object : TypeToken<loginFail>() {}.type
+//            try {
+//                Timber.d("login ${currentCoroutineContext()}")
+//                val result = BookApi.retrofitService.apiLogin(loging).await()
+//                if (result.isSuccessful) {
+//                    _registerAccount.postValue(result.body())
+//                } else{
+//                 val error:loginFail = gson.fromJson(result.errorBody()?.string(),type)
+//                 _loginFail.postValue(error.message)
+//
+//                }
+//            } catch (e: Exception) {
+//                Timber.d("loginFail e: $e")
+//            }
+//        }
+//    }
+//
+//
+//    private fun searchByBookNameByApi(bookName: String) {
+//        viewModelScope.launch(Dispatchers.IO) {
+//            val result = BookApi.retrofitService.apiSearchBook(bookName)
+//            try {
+//                val getResult = result.await()
+//                if (getResult.size > 0) {
+//                    _bookResult.postValue(getResult)
+//                } else {
+//                    _bookResult.postValue(listOf())
+//                }
+//            } catch (e: Exception) {
+//            }
+//        }
+//    }
+
+
+//    private fun getBooksFromApi() {
+//        viewModelScope.launch(Dispatchers.IO) {
+//            Timber.d("目前thread ${currentCoroutineContext()}")
+//            val result = BookApi.retrofitService.apiGetBook()
+//            try {
+//                val resultList = result.await()
+//                _recommendBooks.postValue(resultList)
+//            } catch (e: Exception) {
+//            }
+//        }
+//    }
 
 
 
-    fun resetLogOut(){
-        _logOutState.postValue(null)
-    }
+//    fun getUserInfoFromApi(){
+//        viewModelScope.launch(Dispatchers.IO) {
+//            val token = "Bearer " +_registerAccount.value?.token
+//            val result = BookApi.retrofitService.apiGetProfileInfo(_registerAccount.value?.user?.id.toString(),token)
+//            try {
+//              val resultList = result.await()
+//              _accountProfile.postValue(resultList)
+//            }catch (e:Exception){
+//                _fetchApiError.postValue(e.message)
+//            }
+//        }
+//    }
+
+
+
+//    fun resetLogOut(){
+//        _logOutState.postValue(null)
+//    }
 
 
     fun addDetailBook(item:BookItem){
@@ -340,9 +343,9 @@ init {
     }
 
 
-    fun writeComment(rate: Float, comment: String?) {
+    fun writeComment(token: String,rate: Float, comment: String?) {
         viewModelScope.launch(Dispatchers.IO) {
-            val token = "Bearer " +_registerAccount.value?.token
+//            val token = "Bearer " +_registerAccount.value?.token
             try {
                 val result = BookApi.retrofitService.apiWriteComment(selectedBook.value!!.id,rate,comment,token).await()
                 if (result.isSuccessful) {
@@ -364,7 +367,7 @@ init {
     }
 
     fun searchByName(bookName: String){
-        searchByBookNameByApi(bookName)
+//        searchByBookNameByApi(bookName)
         _searchName.postValue(bookName)
     }
 
@@ -376,23 +379,23 @@ init {
         _rateNum.postValue(10f)
     }
 
-    @SuppressLint("LogNotTimber")
-    fun uploadImage(requestFile: MultipartBody.Part) {
-
-        val token = "Bearer " +_registerAccount.value?.token
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = BookApi.retrofitService.apiUploadProfile(accountProfile.value?.user?.id.toString(),"PUT",requestFile,token).await()
-            if(result.isSuccessful){
-                Timber.d("upload成功")
-            }else{
-                try {
-                    Timber.d("upload失敗errorbody ${result.errorBody()?.string()}")
-                }catch (e:IOException){
-                    Timber.d("upload失敗e ${e.message}")
-                }
-            }
-        }
-    }
+//    @SuppressLint("LogNotTimber")
+//    fun uploadImage(requestFile: MultipartBody.Part) {
+//
+//        val token = "Bearer " +_registerAccount.value?.token
+//        viewModelScope.launch(Dispatchers.IO) {
+//            val result = BookApi.retrofitService.apiUploadProfile(accountProfile.value?.user?.id.toString(),"PUT",requestFile,token).await()
+//            if(result.isSuccessful){
+//                Timber.d("upload成功")
+//            }else{
+//                try {
+//                    Timber.d("upload失敗errorbody ${result.errorBody()?.string()}")
+//                }catch (e:IOException){
+//                    Timber.d("upload失敗e ${e.message}")
+//                }
+//            }
+//        }
+//    }
 
 
 
@@ -450,7 +453,10 @@ init {
     fun resetRegisterError(){
         _registerError.postValue(null)
     }
-
+//
+//    fun resetLoginFail(){
+//        _loginFail.postValue(null)
+//    }
 
 }
 

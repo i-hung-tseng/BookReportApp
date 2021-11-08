@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id "androidx.navigation.safeargs"
     id 'kotlin-kapt'
+
 }
 
 android {
@@ -101,7 +102,7 @@ dependencies {
 
     //glide
     implementation "com.github.bumptech.glide:glide:$version_glide"
-
+    implementation 'jp.wasabeef:glide-transformations:3.0.1'
 
     // viewpager2
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
@@ -136,5 +137,17 @@ dependencies {
     //Picaso
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
+
+
+    //Koin
+    implementation "org.koin:koin-core:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+//    implementation "org.koin.androidx.viewmodel.ext.android.viewModel:$koin_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+
+    //MaterialSearchBar
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
+
 
 }

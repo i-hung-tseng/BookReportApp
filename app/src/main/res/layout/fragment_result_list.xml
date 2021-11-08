@@ -8,8 +8,8 @@
 
     <data>
         <variable
-            name="viewmodel"
-            type="com.example.bookreports.utils.MainViewModel" />
+            name="bookViewModel"
+            type="com.example.bookreports.home.BookViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,8 +22,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_result"
-            result_list="@{viewmodel.bookResult}"
             android:layout_width="match_parent"
+            result_list="@{bookViewModel.bookResult}"
             android:layout_height="0dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"

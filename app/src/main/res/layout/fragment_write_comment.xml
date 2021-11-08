@@ -24,7 +24,7 @@
             android:id="@+id/imageView3"
             android:layout_width="81dp"
             android:layout_height="76dp"
-            android:src="@drawable/vector"
+            bindProfile="@{viewmodel.accountProfile.user.image}"
             android:background="@drawable/backgorund_corner"
             app:layout_constraintBottom_toTopOf="@+id/guideline4"
             app:layout_constraintStart_toStartOf="@+id/guideline5"
@@ -88,27 +88,14 @@
             app:layout_constraintStart_toStartOf="@+id/guideline5"
             app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
-        <EditText
-            android:id="@+id/ed_comment"
-            android:layout_width="296dp"
-            android:layout_height="78dp"
-            android:ems="100"
-            android:hint="請寫下您的感想..."
-            app:layout_constraintEnd_toStartOf="@+id/guideline6"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="@+id/guideline5"
-            app:layout_constraintTop_toTopOf="@+id/guideline8" />
-
         <Button
             android:id="@+id/btn_sendComment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:text="Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_comment" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ProgressBar
             android:id="@+id/pb_writeComment"
@@ -126,11 +113,12 @@
             android:layout_width="242dp"
             android:layout_height="202dp"
             android:text="TextView"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ed_comment" />
+            tools:layout_editor_absoluteY="293dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

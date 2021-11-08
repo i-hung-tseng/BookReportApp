@@ -5,7 +5,7 @@ data class User(
     val email: String,
     val email_verified_at: Any?,
     val id: Int,
-    val image: String,
+    val image: String?,
     val name: String,
     val point: Int,
     val region: String,

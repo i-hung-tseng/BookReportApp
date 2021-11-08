@@ -13,6 +13,14 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="enter_your_name">Enter your Name</string>
+    <string name="register_email">請輸入信箱</string>
+    <string name="register_email_hint">請輸入常用的信箱</string>
+    <string name="register_password">輸入密碼</string>
+    <string name="register_password_hint">請輸入8碼以上</string>
+    <string name="register_confirmation_password">請再次輸入您的密碼</string>
+    <string name="register_name">請輸入您的名稱</string>
+    <string name="register_name_hint">輸入姓名</string>
+    <string name="register_area">請輸入所在區域</string>
 
     <string-array name="spinner_gender">
         <item>男生</item>
@@ -42,6 +50,7 @@
         <item>\@gmail.com</item>
         <item>\@yahoo.com.tw</item>
         <item>\@outlook.com</item>
+
 
     </string-array>
 

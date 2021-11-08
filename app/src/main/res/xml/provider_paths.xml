@@ -9,8 +9,13 @@
 
 <!--    內部儲存空間應用私有目錄下的files/目錄-->
 <!--    等同Content.getFilesDir()-->
-   <files-path
-        name="internal"
+<!--   <files-path-->
+<!--        name="internal"-->
+<!--        path="." />-->
+
+
+    <cache-path
+        name="cache_files"
         path="." />
 
 </paths>

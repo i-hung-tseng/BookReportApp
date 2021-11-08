@@ -13,7 +13,7 @@
 
 
 
-    <item android:title="個人相關" />
+<!--    <item android:title="個人相關" />-->
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/profile"
@@ -21,27 +21,27 @@
             android:title="個人介面" />
     </group>
 
-    <item android:title="通知相關" />
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/forMessage"
-            android:icon="@drawable/ic_message"
-            android:title="個人訊息" />
+<!--    <item android:title="通知相關" />-->
+<!--    <group android:checkableBehavior="single">-->
+<!--        <item-->
+<!--            android:id="@+id/forMessage"-->
+<!--            android:icon="@drawable/ic_message"-->
+<!--            android:title="個人訊息" />-->
 
-        <item
-            android:id="@+id/notify"
-            android:icon="@drawable/ic_notifications"
-            android:title="最新通知" />
+<!--        <item-->
+<!--            android:id="@+id/notify"-->
+<!--            android:icon="@drawable/ic_notifications"-->
+<!--            android:title="最新通知" />-->
 
-        <item
-            android:id="@+id/bookStore"
-            android:icon="@drawable/ic_baseline_menu_book_24"
-            android:title="暢銷書籍" />
+<!--        <item-->
+<!--            android:id="@+id/bookStore"-->
+<!--            android:icon="@drawable/ic_baseline_menu_book_24"-->
+<!--            android:title="暢銷書籍" />-->
 
-    </group>
+<!--    </group>-->
 
 
-    <item android:title="設置相關" />
+<!--    <item android:title="設置相關" />-->
 
     <group android:checkableBehavior="single">
         <item
@@ -49,10 +49,10 @@
             android:icon="@drawable/ic_login"
             android:title="登入會員" />
 
-        <item
-            android:id="@+id/setting"
-            android:icon="@drawable/ic_settings"
-            android:title="設置" />
+<!--        <item-->
+<!--            android:id="@+id/setting"-->
+<!--            android:icon="@drawable/ic_settings"-->
+<!--            android:title="設置" />-->
 
     </group>
 

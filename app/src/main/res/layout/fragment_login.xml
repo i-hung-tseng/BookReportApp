@@ -146,18 +146,18 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_easylog"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="31dp"
-            android:background="@color/waterBule"
-            android:text="login"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="6:1"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_buttonEnd"
-            app:layout_constraintStart_toStartOf="@+id/guideline_buttonEnd" />
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/btn_easylog"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_marginBottom="31dp"-->
+<!--            android:background="@color/waterBule"-->
+<!--            android:text="login"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintDimensionRatio="6:1"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/guideline_buttonEnd"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/guideline_buttonEnd" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,8 +9,8 @@
 
     <data>
         <variable
-            name="viewmodel"
-            type="com.example.bookreports.utils.MainViewModel" />
+            name="bookViewModel"
+            type="com.example.bookreports.home.BookViewModel" />
     </data>
 
 
@@ -26,6 +26,7 @@
             android:id="@+id/recyclerview_recommend"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            bindRecommendList="@{bookViewModel.recommendBooks}"
             app:layout_constraintBottom_toBottomOf="@+id/guideline_recyclerview_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline3"
@@ -65,17 +66,17 @@
             app:layout_constraintBottom_toTopOf="@+id/guideline_recyclerview_top"
             app:layout_constraintStart_toStartOf="@+id/guideline3" />
 
-        <SearchView
-            android:id="@+id/searchBar"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@id/guideline_searchBottom"
-            app:layout_constraintStart_toStartOf="@id/guideline3"
-            app:layout_constraintEnd_toEndOf="@id/guideline_end"
-            app:layout_constraintDimensionRatio="9:1"
-            android:background="@drawable/background_searchview"
-            tools:layout_editor_absoluteX="146dp"
-            tools:layout_editor_absoluteY="13dp" />
+<!--        <SearchView-->
+<!--            android:id="@+id/searchBar"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/guideline_searchBottom"-->
+<!--            app:layout_constraintStart_toStartOf="@id/guideline3"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/guideline_end"-->
+<!--            app:layout_constraintDimensionRatio="9:1"-->
+<!--            android:background="@drawable/background_searchview"-->
+<!--            tools:layout_editor_absoluteX="146dp"-->
+<!--            tools:layout_editor_absoluteY="13dp" />-->
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_end"
@@ -91,7 +92,17 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.08" />
 
-
+        <ImageView
+            android:id="@+id/image_test"
+            android:layout_width="186dp"
+            android:layout_height="224dp"
+            android:layout_marginBottom="72dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+            app:layout_constraintHorizontal_bias="0.546"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
