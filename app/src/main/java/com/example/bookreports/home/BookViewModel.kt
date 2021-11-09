@@ -31,6 +31,8 @@ class BookViewModel:ViewModel() {
     get() = _recommendBooks
 
 
+    private val _businessList = MutableLiveData<List<BookItem>>()
+    val businessList: LiveData<List<BookItem>> = _businessList
 
     private val _commentSuccess = SingleLiveEvent<com.example.bookreports.data.book.writecomment.Comment>()
     val commentSuccess: SingleLiveEvent<com.example.bookreports.data.book.writecomment.Comment>
@@ -240,6 +242,25 @@ class BookViewModel:ViewModel() {
     override fun onCleared() {
         super.onCleared()
         Timber.d("BookViewModel  End")
+    }
+
+    fun getCategoryBookListFromApi(category: String,rankMethod: String?){
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = BookApi.retrofitService.apiGetCategoryBook(category)
+            try {
+                if(rankMethod == null){
+                    val resultList = result.await()
+                    _businessList.postValue(resultList)
+                }else if (rankMethod == "上架時間"){
+                    val resultList = result.await()
+                    val afterresult =resultList.sortedBy { it.publish_date }
+                    _businessList.postValue(afterresult)
+                }else{
+                }
+            }catch (e:Exception){
+            }
+        }
+
     }
 
 

@@ -83,28 +83,9 @@ fun bindCommentAdapter(recyclerview: RecyclerView,data:List<Comment>?){
 @BindingAdapter("bindProfile")
 fun bindProfile(view:ImageView,uri:String?){
 
-    class RoundedCornerCenterCrop(val radius: Int = 0): BitmapTransformation(){
-        override fun updateDiskCacheKey(messageDigest: MessageDigest) {
-        }
-
-        override fun transform(pool: BitmapPool, toTransform: Bitmap, outWidth: Int, outHeight: Int): Bitmap {
-        val bitmap = TransformationUtils.centerCrop(pool,toTransform,outWidth,outHeight)
-            return TransformationUtils.roundedCorners(pool,bitmap,radius)
-        }
-    }
-
-    if(uri == null){
-
-        Glide.with(view)
-                .load(R.drawable.vector)
-                .into(view)
-
-    }else{
-        Timber.d("進到 bindProfile")
-        Glide.with(view)
-                .load(uri)
-                .into(view)
-    }
+    Glide.with(view)
+        .load(uri)
+        .into(view)
 
 }
 

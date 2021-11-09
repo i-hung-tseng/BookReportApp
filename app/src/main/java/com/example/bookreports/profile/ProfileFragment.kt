@@ -86,6 +86,11 @@ class ProfileFragment : Fragment() {
 
         initAdapter()
 
+        vmAccount.profileInfo.observe(viewLifecycleOwner,{
+            Glide.with(binding.imageProfile)
+                .load(it.user?.image)
+                .into(binding.imageProfile)
+        })
 
 
         if (vmAccount.profileInfo.value == null) {
@@ -128,41 +133,6 @@ class ProfileFragment : Fragment() {
                     .start()
         }
 
-
-        //https://blog.csdn.net/qq_32534441/article/details/103527316
-        //Action_pick跟action_get_context差別
-        //並且因為是選ACTION_PICK 所以回傳是contextURL
-
-
-
-//        binding.btnPickImage.setOnClickListener {
-//            val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-//            startActivityForResult(gallery, PICTURE_FROM_GALLERY)
-//            //用SD卡 external:content://com.google.android.apps.photos.contentprovider/-1/1/content%3A%2F%2Fmedia%2Fexternal%2Fimages%2Fmedia%2F25/ORIGINAL/NONE/959267574
-//            //內部儲存Internal: content://com.google.android.apps.photos.contentprovider/-1/1/content%3A%2F%2Fmedia%2Fexternal%2Fimages%2Fmedia%2F25/ORIGINAL/NONE/718415588
-//        }
-//
-//        binding.btnTakePicture.setOnClickListener {
-//            //拿縮圖
-////            val camera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-////            startActivityForResult(camera, PICTURE_FROM_CAMERA)
-//
-//
-//            //儲存至相簿  這邊要注意要開始用 fileProvider
-//            val camera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-//            //先新增一張照片
-//            val tmpFile = File(context?.getExternalFilesDir(null),"image.jpg")
-//            //這個也是 content://
-//            val outputFileUri = FileProvider.getUriForFile(requireActivity(),"com.example.bookreports.provider",tmpFile)
-//            Timber.d("outputFileUri :$outputFileUri")
-//            imageUri = outputFileUri
-//            val path: String = tmpFile.absolutePath
-//            imagePath = path
-//            Timber.d("tmpPath: $path")
-//            //指定為輸出檔案的位置
-//            camera.putExtra(MediaStore.EXTRA_OUTPUT,outputFileUri)
-//            startActivityForResult(camera, PICTURE_FROM_CAMERA)
-//        }
         return binding.root
     }
 
@@ -176,7 +146,6 @@ class ProfileFragment : Fragment() {
 
             if (data != null && data.data != null) {
                 imageUri = data.data
-                imageView.setImageURI(imageUri)
                 Timber.d("imageUri:$imageUri")
                 imagePath = imageUri?.let { getPathFromUri(it) }
                 Timber.d("imagePath: $imagePath")
@@ -186,7 +155,12 @@ class ProfileFragment : Fragment() {
                 Timber.d("photoContext:$requestBody")
                 val multipart: MultipartBody.Part = MultipartBody.Part.createFormData("image",file.name,requestBody)
                 Timber.d("multipart:$multipart")
-//                viewModel.uploadImage(multipart)
+                vmAccount.accountInfo.value?.token?.let {
+                    vmAccount.getProfileInfo(vmAccount.accountInfo.value?.user?.id.toString(),
+                        it
+                    )
+                }
+
             }
                 }
                 PICTURE_FROM_CAMERA -> {
@@ -219,10 +193,8 @@ class ProfileFragment : Fragment() {
                     val multipart: MultipartBody.Part = MultipartBody.Part.createFormData("image",file.name,requestBody)
                     Timber.d("multipart:$multipart")
                     vmAccount.uploadImage(multipart)
-                    imageView.setImageURI(imageUri)
-                    val id = vmAccount.accountInfo.value?.user?.id.toString()
-                    val token = "Bearer " + vmAccount.accountInfo.value?.token
-                    vmAccount.getProfileInfo(id,token)
+//                    imageView.setImageURI(imageUri)
+
                 }
             }
         }

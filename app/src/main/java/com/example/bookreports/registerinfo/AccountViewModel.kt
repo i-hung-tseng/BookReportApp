@@ -39,11 +39,6 @@ class AccountViewModel: ViewModel() {
     get() = _profileFail
 
 
-//    private val _comments = MutableLiveData<List<Comment>>()
-//    val comments: LiveData<List<Comment>>
-//    get() = _comments
-
-
     private val _accountInfo =  MutableLiveData<userFromApi>()
     val accountInfo: LiveData<userFromApi>
     get() = _accountInfo
@@ -66,10 +61,6 @@ class AccountViewModel: ViewModel() {
     private val _loginFail = SingleLiveEvent<loginFail>()
     val loginFail: SingleLiveEvent<loginFail>
     get() = _loginFail
-
-
-
-
 
     var list: MutableList<String> = mutableListOf("","","","","")
 
@@ -165,6 +156,7 @@ class AccountViewModel: ViewModel() {
             val result = BookApi.retrofitService.apiUploadProfile(accountInfo.value?.user?.id.toString(),"PUT",requestFile,token).await()
             if(result.isSuccessful){
                 Timber.d("upload成功")
+                getProfileInfo(accountInfo.value?.user?.id.toString(),accountInfo.value!!.token)
             }else{
                 try {
                     Timber.d("upload失敗errorbody ${result.errorBody()?.string()}")
@@ -174,10 +166,6 @@ class AccountViewModel: ViewModel() {
             }
         }
     }
-
-
-
-
 
     fun setNewOrNot(boolean: Boolean){
         _newOrNot.postValue(boolean)

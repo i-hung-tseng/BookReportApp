@@ -17,8 +17,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bookreports.R
 import com.example.bookreports.databinding.FragmentOverViewBusinessBinding
+import com.example.bookreports.home.BookViewModel
 import com.example.bookreports.network.BookApi
 import com.example.bookreports.utils.MainViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import timber.log.Timber
 
 
@@ -28,7 +30,7 @@ class OverViewBusinessFragment : Fragment() {
 
     lateinit var linearLayoutManager: LinearLayoutManager
     private val viewModel: MainViewModel by activityViewModels()
-
+      private val boookViewModel: BookViewModel by sharedViewModel()
 
 
 
@@ -40,10 +42,10 @@ class OverViewBusinessFragment : Fragment() {
 
         val binding = FragmentOverViewBusinessBinding.inflate(inflater)
 
-        binding.viewmodel = viewModel
+        binding.bookViewModel = boookViewModel
         binding.lifecycleOwner = this
         binding.recyclerviewRecommend.adapter = BusinessAdapter(BusinessAdapter.OnClickListener{
-            viewModel.addDetailBook(it)
+            boookViewModel.getSelectedBookDetailFromApi(it.id)
             this.findNavController().navigate(R.id.detailFragment)
         })
 
@@ -53,11 +55,12 @@ class OverViewBusinessFragment : Fragment() {
 
 
         if(viewModel.categoryBookList.value == null){
-        viewModel.getCategoryBookListFromApi("1",null)}
+            boookViewModel.getCategoryBookListFromApi("1",null)
+        }
 
         binding.btnRank.setOnClickListener {
-            Log.d("Testing","btn ${viewModel.categoryBookList.value}")
-            viewModel.getCategoryBookListFromApi("1","上架時間")
+            boookViewModel.getCategoryBookListFromApi("1","上架時間")
+
         }
 
 

@@ -9,8 +9,8 @@
 
     <data>
         <variable
-            name="viewmodel"
-            type="com.example.bookreports.utils.MainViewModel" />
+            name="bookViewModel"
+            type="com.example.bookreports.home.BookViewModel" />
     </data>
 
 
@@ -26,7 +26,7 @@
             android:id="@+id/recyclerview_recommend"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            category_list="@{viewmodel.categoryBookList}"
+            category_list="@{bookViewModel.businessList}"
             app:layout_constraintBottom_toBottomOf="@+id/guideline_recyclerview_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline3"
